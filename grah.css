@@ -35,7 +35,8 @@ h1 {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: var(--secondary_dark);
+  /*background-color: var(--secondary_dark);*/
+  background: linear-gradient(to top, var(--secondary_dark) 40%, rgba(0,0,0,0) 90%);
   color: var(--primary_dark);
 }
 a.footer {
