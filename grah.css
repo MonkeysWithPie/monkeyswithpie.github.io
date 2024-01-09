@@ -3,15 +3,15 @@
     src: url(NotoSans-VariableFont_wdth\,wght.ttf);
 }
 :root {
-    --accent: #9690FF;
+    --accent: #9690FF; /* For large effects or grander gradients */
     --accent_dark: #3A3B60;
-    --primary: #84B2BB;
+    --primary: #84B2BB; /* For highlighting text or making smaller gradient effects */
     --primary_dark: #34474A;
-    --secondary: #455052;
+    --secondary: #455052; /* For small text effects or an alternate background */
     --secondary_dark: #202726;
-    --text: #ECF1F1;
-    --background: #0C1110;
-    --blue_accent: #498BFC;
+    --text: #ECF1F1; /* For text on the base background */
+    --background: #0C1110; 
+    --blue_accent: #498BFC; /* For hover effects */
     --blue_accent_dark: #20395E;
 }
 body {
