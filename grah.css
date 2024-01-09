@@ -37,17 +37,17 @@ h1 {
   width: 100%;
   /*background-color: var(--secondary_dark);*/
   background: linear-gradient(to top, var(--secondary_dark) 40%, rgba(0,0,0,0) 90%);
-  color: var(--primary_dark);
+  color: var(--primary_dark) !important;
 }
 a.footer {
     font-weight: 585;
-    color: var(--primary_dark);
-    text-shadow: 1px 1px 7px var(--accent_dark);
+    color: var(--primary_dark) !important;
+    text-shadow: 1px 1px 7px var(--accent_dark) !important;
     transition: 0.5s;
 }
 a.footer:hover {
-    color: var(--blue_accent_dark);
-    text-shadow: 0px 0px 15px var(--accent_dark);
+    color: var(--blue_accent_dark) !important;
+    text-shadow: 0px 0px 15px var(--accent_dark) !important;
 }
 p {
     padding-left: 10px;
