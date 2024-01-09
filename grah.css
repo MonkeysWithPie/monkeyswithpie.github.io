@@ -4,8 +4,11 @@
 }
 :root {
     --accent: #9690FF;
+    --accent_dark: #3A3B60;
     --primary: #84B2BB;
+    --primary_dark: #34474A;
     --secondary: #455052;
+    --secondary_dark: #202726;
     --text: #ECF1F1;
     --background: #0C1110;
     --blue_accent: #498BFC;
@@ -48,15 +51,16 @@ a:hover {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: var(--secondary);
+  background-color: var(--secondary_dark);
   color: var(--background);
 }
 a.footer {
     font-weight: 585;
+    color: var(--primary_dark);
     text-shadow: 1px 1px 7px var(--background);
     transition: 0.5s;
 }
 a.footer:hover {
-    color: var(--primary);
+    color: var(--accent_dark);
     text-shadow: 0px 0px 15px var(--text);
 }
