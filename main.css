@@ -31,15 +31,17 @@ h1 {
     font-size: 3rem;
 }
 #footer {
-  width: 96%;
-  height: 50px;
-  padding-left: 25px;
-  padding-top: 50px;
-  /*background-color: var(--secondary_dark);*/
-  background: linear-gradient(to top, var(--secondary_dark) 40%, rgba(0,0,0,0) 90%);
-  color: var(--primary_dark) !important;
-  display: flex;
-  flex-direction: column;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-left: 25px;
+    padding-top: 50px;
+    /*background-color: var(--secondary_dark);*/
+    background: linear-gradient(to top, var(--secondary_dark) 40%, rgba(0,0,0,0) 90%);
+    color: var(--primary_dark) !important;
+    display: flex;
+    flex-direction: column;
 }
 .gray {
     color: var(--primary_dark) !important;
