@@ -19,7 +19,7 @@ body {
     background-image: radial-gradient(at 160% 160%, var(--secondary),var(--background) 63%)
 }
 h1 {
-    width: 150px;
+    width: max-content;
     padding-left: 35px;
     background: linear-gradient(to top right, var(--accent) 40%, var(--text) 90%);
     -webkit-background-clip: text;
