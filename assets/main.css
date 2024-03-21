@@ -17,6 +17,7 @@
 body {
     background-color: var(--background);
     background-image: radial-gradient(at 160% 160%, var(--secondary),var(--background) 63%)
+    background-repeat: no-repeat;
 }
 h1 {
     width: max-content;
