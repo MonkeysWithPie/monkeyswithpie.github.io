@@ -16,8 +16,6 @@
 }
 body {
     background-color: var(--background);
-    background-image: radial-gradient(at 160% 160%, var(--secondary),var(--background) 63%)
-    background-repeat: no-repeat;
 }
 h1 {
     width: max-content;
@@ -29,6 +27,15 @@ h1 {
     font-family: "Noto Sans";
     text-shadow: 0px 0px 35px var(--primary);
     font-size: 3rem;
+}
+h1.center {
+    padding-left: 0;
+    margin: auto;
+    padding-top: 1rem;
+    background: linear-gradient(to top right, var(--accent_dark) 40%, var(--primary_dark) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 0px 35px var(--secondary_dark);
 }
 #footer-box {
     position: absolute;
