@@ -1,0 +1,62 @@
+:root {
+    --bar-size: 80px;
+}
+
+#countdown-box {
+    width: 100%;
+    align-items: center;
+    height: var(--bar-size);
+    background-color: rgb(36, 35, 29);
+    position: relative;
+    overflow: hidden;
+    margin-top: 0px;
+}
+
+#bar-filled {
+    position: absolute;
+    height: var(--bar-size);
+    width: 0%;
+    left: 0px;
+    background-image: url('../images/bar-background.png');
+    background-repeat: repeat;
+    background-size: 50px 50px;
+    opacity: 0.3;
+    z-index: 1;
+    animation: scroll 3s linear infinite;
+}
+
+@keyframes scroll {
+    from {background-position: 0 0;}
+    to {background-position: 100px 0;}
+}
+
+#countdown-div {
+    color: rgb(99, 99, 99);
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    height: var(--bar-size);
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+}
+
+#content {
+    margin: auto;
+    margin-top: 40px;
+    padding: 10px 10px 20px 20px;
+    max-width: 800px;
+    align-self: center;
+    background-color:rgb(172, 172, 172);
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    background-color:rgb(88, 88, 88);
+    font-family: sans-serif;
+}

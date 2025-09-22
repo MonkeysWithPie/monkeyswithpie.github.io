@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+}
+
+.item {
+    flex-grow: 0;
+    position: relative
+}
