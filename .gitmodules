@@ -1,0 +1,3 @@
+[submodule "gizmos/pingcremental"]
+	path = gizmos/pingcremental
+	url = https://github.com/MonkeysWithPie/pingcremental-web
