@@ -318,9 +318,7 @@ p strong {
 }
 .pref-container li {
     margin-left: 8px;
-}
-.pref-container li::marker {
-    content: "";
+    list-style-type: none;
 }
 .pref-title {
     font-weight: bold;
