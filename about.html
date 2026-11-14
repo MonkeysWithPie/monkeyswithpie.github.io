@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>about morky wow</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="preload" href="styles/about.css" as="style">
+
+        <link rel="stylesheet" href="styles/about.css" blocking="render">
+		<link rel="stylesheet" href="https://ch.tetr.io/res/css/extra.css">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+		
+		<!-- TODO don't use iconify -->
+		<script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.3/dist/iconify-icon.min.js"></script>
+	</head>
+    <body>
+		<noscript>
+			heads up, some parts of this site won't work without scripting (like tooltips)!
+		</noscript>
+        <div id="profile-box">
+			<div id="pfp-container">
+				<img src="images/pfp-s.webp" id="profile-picture">
+			</div>
+            <div id="name-popout">
+                <div id="name" class="slice-clipped">MONKEYSWITHPIE</div>
+                <div id="badges" class="slice-clipped">
+                    <div class="badge" style="anchor-name: --anc-enby;" tabindex="0">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Nonbinary_flag.svg?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=original" alt="Nonbinary flag">
+						<div class="tooltip-container" style="position-anchor: --anc-enby;" popover="hint">
+							<div class="tooltip-title">NON-BINARY</div>
+							<div class="tooltip-explainer">i don't identify as male or female.</div>
+							<div class="tooltip-flavor">hexadecimal is better anyway</div>
+						</div>
+                    </div>
+					<div class="badge" style="anchor-name: --anc-aro;" tabindex="0">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Aromantic_Pride_Flag.svg/500px-Aromantic_Pride_Flag.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" alt="Aromantic flag">
+						<div class="tooltip-container" style="position-anchor: --anc-aro;" popover="hint">
+							<div class="tooltip-title">AROMANTIC</div>
+							<div class="tooltip-explainer">i feel little to no romantic attraction.</div>
+							<div class="tooltip-flavor">baby don't hurt me</div>
+						</div>
+                    </div>
+                </div>
+				<div id="pronouns" class="slice-clipped">they/them</div>
+            </div>
+        </div>
+		<div id="main-section" class="text-section">
+			<div id="tldr">
+				<div class="for-header" style="--c: #774700; --fc: var(--text-im);">
+					<h1>TL;DR</h1>
+					<div class="header-bars"></div>
+				</div>
+				<p>g'morning, my name is monkeyswithpie but please call me <strong>morky</strong>! i'm a cat-dragon hybrid from texas who enjoys programming, gaming, and graphic design.</p>
+				<p>my humor is very sarcastic; if i ever come off rude or annoying, please tell me. i try my best to add tone tags when necessary, but i'm not perfect. please remind me if it's ever unclear.</p>
+				<p>it is currently <span id="current-time">XX:XX:XX</span> <span id="current-date">(??? XX)</span> for me.</p>
+			</div>
+			<div id="pref">
+				<div class="for-header" style="--c: #225e00; --fc: var(--text-im);">
+					<h1>PREFERENCES</h1>
+					<div class="header-bars">
+					</div>
+				</div>
+
+				<div id="legend">
+					<div class="pref good">GOOD: this is what i prefer.</div>
+					<div class="pref ok">OK: i'm not bothered by this. don't correct people on this.</div>
+					<div class="pref bad">BAD: don't do this. you may correct others if they do this.</div>
+				</div>
+				<div id="preferences-list">
+					<div class="pref-row">
+						<ul class="pref-container">
+							<h2 class="pref-title">NAMES</h2>
+							<li class="pref good">morky</li>
+							<li class="pref good">mork</li>
+							<li class="pref ok">monkeyswithpie</li>
+							<li class="pref ok">monkey</li>
+						</ul>
+						<ul class="pref-container">
+							<h2 class="pref-title">PRONOUNS</h2>
+							<li class="pref good">they/them</li>
+							<li class="pref good">xe/xem <div class="pref-info tooltip-container" popover="hint" data-info="when-xe">
+								use these pronouns when talking about groups. e.g., "when xe went out with xer friends, they bought pizza, but xe realized xe didn't bring xer wallet!"
+							</div></li>
+							<li class="pref ok">any</li>
+						</ul>
+					</div>
+					<div class="pref-row">
+						<ul class="pref-container">
+							<h2 class="pref-title">HONORIFICS</h2>
+							<li class="pref good">mx.</li> 
+							<li class="pref good">smir'm <div class="pref-info tooltip-container" popover="hint" data-info="smirm">"what's the not girl or boy version of ma'am and sir?"<br>
+ "...i... don't know, actually." <br>
+ "that's okay. i'll make one up. have a good rest of your day, smir'm!"<br>
+ - FrogSong
+</div></li> 
+							<li class="pref ok">mr.</li>
+						</ul>
+						<ul class="pref-container">
+							<h2 class="pref-title">COMPLIMENTS</h2>
+							<li class="pref good">miscellaneous compliments, like smart, etc</li>
+							<li class="pref bad">physical compliments, like cute, handsome, etc <div class="pref-info tooltip-container" popover="hint" data-info="oc-comp">you may use terms like these when specifying that you're talking about my OC. ensure it's clear that you mean my OC and not me.</div></li>
+						</ul>
+						<ul class="pref-container">
+							<h2 class="pref-title">"TOUCH"</h2>
+							<li class="pref good">using my pat emoji</li>
+							<li class="pref good">boops</li>
+							<li class="pref bad">affectionate touch (e.g. hugs, cuddles)</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="games">
+				<div class="for-header" style="--c: #006572; --fc: var(--text-im);">
+					<h1>GAMES</h1>
+					<div class="header-bars"></div>
+				</div>
+				<div class="game-full">
+					<h2 style="--c: #000016">
+						<img id="tetr-header-img" src="https://txt.osk.sh/branding/tetrio-logo.png" alt="TETR.IO">
+					</h2>
+					<div id="game-tetr" class="game-full">
+						<div id="tetr-top-bar">
+							<div id="tetr-username">MONKEYSWITHPIE <img id="tetr-main-flag" class="tetr-flag" src="https://tetr.io/res/flags/us.svg"></div>
+							<div id="tetr-full-profile"><a target="_blank" href="https://ch.tetr.io/u/monkeyswithpie">&#497 VIEW FULL PROFILE</a></div>
+						</div>
+						<div id="tetr-short-stats">
+							<div class="leveltag ns lt_shape_0 lt_badge_color_5 lt_shape_color_0">2504</div>
+							<div id="tetr-gametime">
+								704<span>H</span>
+							</div>
+							<img id="tetr-supporter" src="https://tetr.io/res/supporter3.png">
+						</div>
+						<div id="tetr-main-stats">
+							<div class="tetr-stat-area">
+								<div class="tetr-stat-head">
+									<h6>40 LINES</h6> 
+									<div class="tetr-stat-ranks">
+										<div class="tetr-stat-rank-local"><img class="tetr-flag" src="https://tetr.io/res/flags/us.svg"> #<span>676</span></div>
+										<div class="tetr-stat-rank-global">#<span>3,401</span></div>
+									</div>
+								</div>
+
+								<h5>0:29<span>.202</span></h5>
+								<div class="tetr-stat-bottom">
+									<span>3.53</span> PPS
+									<span>90.29%</span> Finesse
+								</div>
+								<div class="tetr-stat-footer">
+									<span id="tetr-40l-age">???</span> ago
+									<a target="_blank" href="https://tetr.io/#R:b590680c0811">Watch Replay &#497</a>
+								</div>
+							</div>
+							
+							<div class="tetr-stat-area">
+								<div class="tetr-stat-head">
+									<h6>QUICK PLAY</h6>
+								</div>
+
+								<h5>3,180<span>.9<span>m</span></span></h5>
+								<div class="tetr-stat-bottom">
+									<span>2.44</span> PPS
+									<span>112.02</span> APM
+								</div>
+								<div class="tetr-stat-footer">
+									<span id="tetr-qp-age">???</span> ago
+									<span class="tetr-gray">no replay</span>
+								</div>
+							</div>
+
+							
+							<div class="tetr-stat-area">
+								<div class="tetr-stat-head">
+									<h6>EXPERT QUICK PLAY</h6> 
+									<div class="tetr-stat-ranks">
+										<div class="tetr-stat-rank-global silver">#<span>63</span></div>
+									</div>
+								</div>
+
+								<h5>1,503<span>.4<span>m</span></span></h5>
+								<div class="tetr-stat-bottom">
+									<span>2.35</span> PPS
+									<span>98.41</span> APM
+								</div>
+								<div class="tetr-stat-footer">
+									<span id="tetr-qpe-age">???</span> ago
+									<span class="tetr-gray">no replay</span>
+								</div>
+							</div>
+						</div>
+						<div id="tetr-full-profile-thin">
+							<a target="_blank" href="https://ch.tetr.io/u/monkeyswithpie">&#497 VIEW FULL PROFILE</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="game-full">
+					<h2 style="--c: #2b4325; --fc: var(--text-im);"><img src="https://minecraft.wiki/images/Grass_Block_JE7_BE6.png"> Minecraft</h2>
+					<div id="game-mc" class="game-full mc-border">
+						<div class="mc-section" id="mc-main">
+							<div class="mc-header">
+								General
+							</div>
+							<div class="mc-border mc-inner">
+								<img src="https://mc-heads.net/avatar/1bd17ee7-c2d2-411e-8959-747c76974021.png">
+								<div id="mc-main-stats">
+									<h2 class="mc-yellow">MonkeysWithPie</h2>
+									<p>5,000+ Hours</p>
+									<p class="mc-gray">Java Edition</p>
+								</div>
+							</div>
+						</div>
+						<div id="mc-mcci" class="mc-section">
+							<div class="mc-header">
+								MCC Island
+							</div>
+							<div class="mc-inner">
+								<!-- TODO what if this looked good. just a thought -->
+								<div id="mc-mcci-top">
+									<div id="mc-mcci-crown">
+										<img src="https://islandcdn.themysterys.com/icons/crowns/3.png">
+										<h2 class="mc-yellow">Crown Level 38</h2>
+									</div>
+									<div id="mc-mcci-levels">
+										<p class="mc-mcci-level">
+											<img src="https://islandcdn.themysterys.com/icons/trophies/yellow.png">
+											28,888 trophies
+										</p>
+										<p class="mc-mcci-level">
+											<img src="https://islandcdn.themysterys.com/icons/style_level/2.png">
+											Lv24&nbsp;
+											<span class="mc-gray">
+												(<img src="https://islandcdn.themysterys.com/icons/trophies/silver.png"> 12,091)
+											</span>										
+										</p>
+										<p class="mc-mcci-level">
+											<img src="https://islandcdn.themysterys.com/fishing/level/3.png">
+											Lv37&nbsp;
+											<span class="mc-gray">
+												(<img src="https://islandcdn.themysterys.com/icons/trophies/silver.png"> 8,647)
+											</span>
+										</p>
+										<p class="mc-mcci-level">
+											<img src="https://islandcdn.themysterys.com/factions/orange/2.png">
+											Lv83
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="mc-hsb" class="mc-section">
+							<div class="mc-header">
+								Hypixel Skyblock
+							</div>
+							<div class="mc-inner mc-border">
+								<div id="hsb-level" class="mc-gray">
+									<h2>
+										Level <span class="hsb-gray">[</span><span id="hsb-level-val">282</span><span class="hsb-gray">]</span>
+									</h2>
+								</div>
+								<p id="hsb-coins">
+									<img src="https://hypixelskyblock.minecraft.wiki/images/Coins_%28Gold%29.png"> ~4B networth
+								</p>
+								<div id="hsb-skills" class="mc-gray">
+									<p class="hsb-skill mc-skill-max">
+										<img src="https://minecraft.wiki/images/Golden_Pickaxe_JE3_BE2.png"> Mining Level 60
+									</p>
+									<p class="hsb-skill">
+										<img src="https://minecraft.wiki/images/Iron_Hoe_JE2_BE2.png"> Farming Level 42
+									</p>
+									<p class="hsb-skill">
+										<img src="https://minecraft.wiki/images/Iron_Axe_JE5_BE2.png"> Foraging Level 43
+									</p>
+								</div>
+							</div>
+						</div>
+						<div id="mc-sr" class="mc-section">
+							<div class="mc-header">
+								MCSR Ranked
+							</div>
+							<div class="mc-inner mc-border">
+								<div id="sr-rank">
+									<div id="sr-rank-icon"></div>
+									<h2> Unrated <span class="mc-gray"></span></h2>
+								</div>
+								<p id="sr-pb" class="mc-gray">24:35 PB</p>
+								<p id="sr-prpb" class="mc-gray">19:58 PB in private rooms</p>
+							</div>
+						</div>	
+					</div>
+				</div>
+
+				<div id="game-partial-container">
+					<!-- TODO add celeste, adofai, slime rancher, vivid/stasis, phigros -->
+				</div>
+			</div>
+			<!-- TODO add projects -->
+		</div>
+    </body>
+	<footer>
+		<div class="text-section">
+			psst! this is still sort of under construction; i have more ideas for games and stuff to put here! stay tuned!
+		</div>
+	</footer>
+	<script defer src="scripts/about.js"></script>
+</html>

@@ -1,0 +1,818 @@
+body {
+    --bg: #20201e;
+    --bg-darker: #0f0f0f;
+
+    --text-darker: #a0a0a0;
+    --text: #e1e1e1;
+    --text-brighter: white;
+    --text-im: #e1e1e1;
+    
+    --header-bg: #8f531fac;
+    --header-slice: #f09636;
+
+    --good: #9cee9c;
+    --bad: #e17171;
+
+    background-color: var(--bg);
+    color: var(--fc, var(--text));
+    margin: 0;
+    font-family: "Exo 2", Tahoma, sans-serif;
+
+    --fade-bg: rgb(from var(--bg-darker) r g b / 0.06);
+    background-image: repeating-linear-gradient(45deg, transparent 0px 30px, 
+        var(--fade-bg) 30px 60px);
+}
+
+body.light {
+    --bg: #f0f0f0;
+    --bg-darker: #dfdfdf;
+
+    --text-darker: #505050;
+    --text: #252525;
+    --text-brighter: black;
+
+    --header-bg: #be712d45;
+    --header-slice: #a96217;
+
+    --good: #249524;
+    --bad: #ab1919;
+
+    --fade-bg: rgb(from var(--bg-darker) r g b / 0.15);
+}
+
+noscript {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 4px;
+}
+
+#profile-box {
+    padding: 8px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--header-bg);
+    justify-content: center;
+}
+
+#pfp-container {
+    height: min(25vw, 150px);
+    background-color: #ffedd8;
+}
+#profile-picture {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+}
+
+#name-popout {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 400px;
+    margin-top: 6px;
+}
+
+.slice-clipped {
+    padding: 2px 24px 2px 8px;
+}
+
+#name {
+    color: black;
+    clip-path: polygon(0% 0%, calc(100% - ((1em + 4px) * 0.8)) 0%, 
+        100% 100%, 0% 100%, 0% 0%);
+    font-size: min(2em, 6vw);
+    font-family: "Tektur", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #F7CA52 0%, #DDB035 50%, 
+        #EACE79 50%, #F3D176 100%);
+    font-weight: bold;
+    position: relative;
+}
+
+#badges {
+    --badge-size: min(8vw, 50px);
+
+    width: 70%;
+    height: min-content;
+    background-color: var(--header-slice);
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - (var(--badge-size) * 0.8)) 100%, 
+        100% 100%, 0% 100%, 0% 0%);
+    display: flex;
+    flex-direction: row;
+}
+
+#pronouns {
+    padding: 0px 20px 0px 6px;
+    background-color: var(--header-slice);
+    color: var(--bg);
+    font-size: min(1em, 3vw);
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 0.8em) 100%, 
+        100% 100%, 0% 100%, 0% 0%);
+    font-family: "Tektur", sans-serif;
+    white-space: nowrap;
+    width: min-content;
+}
+
+.badge img {
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    cursor: help;
+}
+
+.badge {
+    height: var(--badge-size);
+    margin: 0px 2px;
+}
+
+.tooltip-container {
+    inset: unset;
+    position: absolute;
+    top: calc(anchor(bottom) + 5px);
+    transform: translateY(5px);
+    opacity: 0;
+
+    justify-self: anchor-center;
+    margin: 0;
+    padding: 8px;
+
+    transition: opacity 0.2s, transform 0.2s,
+        overlay 0.2s, display 0.2s;
+    transition-behavior: allow-discrete;
+
+    max-width: min(50%, 300px);
+    color: var(--text);
+
+    border: none;
+    background-color: rgb(from var(--bg-darker) r g b / 0.9);
+}
+
+/* https://stackoverflow.com/questions/28365839/dashed-border-animation-in-css3-animation */
+.tooltip-container, .border-rotate {
+    --b: rgb(from var(--text-darker) r g b / 0.6);
+    background-image: linear-gradient(90deg, var(--b) 50%, transparent 50%), 
+        linear-gradient(90deg, var(--b) 50%, transparent 50%), 
+        linear-gradient(0deg, var(--b) 50%, transparent 50%), 
+        linear-gradient(0deg, var(--b) 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+    background-position: left top, right bottom, left bottom, right top;
+    animation: border-rotate 2s infinite linear;
+}
+
+@keyframes border-rotate {
+    0% {
+        background-position: left top, right bottom, left bottom, right top;
+    }
+
+    100% {
+        background-position: left 15px top, right 15px bottom, 
+            left bottom 15px, right top 15px;
+    }
+}
+
+/* firefox doesn't support animating the close for this, potentially worth fixing? */
+.tooltip-container:popover-open {
+    transform: translateY(-5px);
+    opacity: 1;
+}
+
+@starting-style {
+    .tooltip-container:popover-open {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+
+.tooltip-title {
+    font-weight: bold;
+    justify-self: center;
+    font-size: 1.1em;
+}
+
+.tooltip-flavor {
+    margin-top: 4px;
+    font-style: italic;
+    color: var(--text-darker);
+    font-size: 0.8em;
+}
+
+.text-section {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px 8px;
+}
+
+#main-section > div:not(#tldr) {
+    margin-top: 35px;
+}
+
+h1 {
+    clip-path: polygon(0.8em 0%, 100% 0%, calc(100% - 0.8em) 100%, 
+        100% 100%, 0% 100%, 0.8em 0%);
+    background-color: var(--c);
+    display: inline-block;
+    padding: 2px 30px 6px 30px;
+    font-size: 32px;
+
+    margin: 0px;
+}
+
+.for-header {
+    margin: 20px 0;
+    display: flex;
+    width: 100%;
+    overflow: clip;
+}
+
+.header-bars {
+    display: flex;
+}
+.header-bars > div {
+    height: 100%;
+}
+.bar-svg {
+    height: 100%;
+    width: auto;
+    animation: bar-move-out 10s normal infinite linear;
+    position: relative;
+    z-index: -1;
+}
+.bar-svg path {
+    animation: bar-fade-out 10s normal infinite linear;
+}
+@keyframes bar-move-out {
+    0% {
+        left: calc(-40px + var(--offset));
+    }
+
+    100% {
+        left: calc(180px + var(--offset));
+    }
+}
+@keyframes bar-fade-out {
+    0% {
+        stroke-width: 8px;
+        opacity: 1;
+    }
+
+    25% {
+        stroke-width: 6px;
+        opacity: 1;
+    }
+
+    90% {
+        stroke-width: 0.8px;
+        opacity: 0;
+    }
+
+    100% {
+        stroke-width: 0px;
+        opacity: 0;
+    }
+}
+
+p {
+    margin: 3px 0;
+}
+p strong {
+    font-weight: bold;
+    color: var(--text-brighter);
+}
+
+#current-time {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: black;
+    color: #9dc29d;
+    padding: 0px 4px;
+    font-size: 0.9em;
+}
+
+#preferences-list {
+    margin-top: 10px;
+}
+.pref-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) {
+    .pref-row {
+        flex-direction: column;
+    }
+}
+
+.pref-container {
+    flex: 1;
+    padding: 8px;
+    border: 1px dashed var(--text-darker);
+    flex-grow: 1;
+    margin: 0;
+    background-color: var(--bg);
+}
+.pref-container li {
+    margin-left: 8px;
+}
+.pref-container li::marker {
+    content: "";
+}
+.pref-title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.pref.good {
+    color: var(--good);
+}
+.pref.ok {
+    color: var(--text);
+}
+.pref.bad {
+    color: var(--bad);
+}
+
+#legend {
+    margin-top: 20px;
+}
+
+.help-icon {
+    color: var(--text-darker) !important;
+    cursor: help;
+}
+
+.help-container {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    outline-offset: -2px;
+}
+
+.pref-info {
+    position-anchor: var(--anchor);
+}
+
+iconify-icon {
+    transform: translateY(1px);
+    margin-right: 2px;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: local('JetBrains Mono'), url('../assets/JetBrainsMono-Regular.woff2') format("woff2");
+}
+@font-face {
+    font-family: 'HUN';
+    src: url('../assets/hun2.ttf');
+}
+@font-face {
+    font-family: "Minecraft";
+    src: url("../assets/Minecraft-Seven_v2.woff2") format("woff2");
+}
+
+.game-full > h2, .game-partial > h2 {
+    clip-path: polygon(0.8em 0%, 100% 0%, calc(100% - 0.8em) 100%, 
+        100% 100%, 0% 100%, 0.8em 0%);
+    background-color: var(--c);
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 18px 4px 18px;
+    font-size: 18px;
+
+    margin: 4px 0px;
+}
+.game-full > h2 img, .game-partial > h2 img {
+    height: 18px;
+    aspect-ratio: 1/1;
+    margin-right: 4px;
+}
+
+#tetr-header-img {
+    aspect-ratio: unset !important;
+    margin-right: 0 !important;
+    padding: 2px 0px;
+}
+
+.game-full p {
+    margin: 0;
+}
+.game-partial {
+    flex-grow: 1;
+}
+
+/* TETR.IO game section */
+#game-tetr {
+    background-color: #243e25;
+    font-family: "HUN";
+    border-radius: 3px;
+    padding: 12px;
+    border-top: 3px solid #45794f;
+    border-left: 3px solid #3d6242;
+    border-bottom: 3px solid #162419;
+    border-right: 3px solid #1d3220;
+    box-shadow: 0 0 48px #0002;
+}
+#tetr-top-bar {
+    display: flex;
+    flex-direction: row;
+}
+#tetr-username {
+    color: white;
+    text-shadow: 0 2px 4px #0008;
+    font-size: 2em;
+    font-weight: 900;
+}
+#tetr-full-profile {
+    flex-grow: 1;
+    text-align: right;
+    font-size: 1.5rem;
+}
+#game-tetr a {
+    color: #a1dba6;
+    text-decoration: none;
+}
+#tetr-main-flag {
+    height: .5em;
+    vertical-align: middle;
+    margin-left: .15em;
+}
+.tetr-flag {
+    clip-path: polygon(0.1em 0,calc(100% - 0.1em) 0,100% 0.1em,
+        100% calc(100% - 0.1em),calc(100% - 0.1em) 100%,
+        0.1em 100%,0 calc(100% - 0.1em),0 0.1em);
+}
+.leveltag {
+    margin-top: 6px !important;
+}
+#tetr-supporter {
+    height: 1.9em;
+    float: right;
+}
+#tetr-gametime {
+    float: right;
+    font-size: 1.25em;
+    padding: .1em .5em;
+    background-color: #0003;
+    color: #b3f4b6;
+    border-radius: 3px;
+    padding-top: .3em;
+    margin-left: .2em;
+}
+#tetr-gametime span {
+    color: #345a36;
+    font-size: 0.6em;
+    font-weight: 900;
+}
+#tetr-main-stats {
+    text-align: center;
+    margin: -.25em;
+    margin-top: .5em;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.tetr-stat-area {
+    display: inline-block;
+    padding: .25em;
+    margin: .25em;
+    border-radius: 3px;
+    background-color: #0002;
+    text-align: center;
+    position: relative;
+    max-width: 25rem;
+    min-width: 12rem;
+    flex-grow: 1;
+}
+.tetr-stat-ranks {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+.tetr-stat-head {
+    display: flex;
+    margin: -.25em;
+    margin-bottom: -.1em;
+}
+.tetr-stat-head h6 {
+    margin: 0;
+    flex-shrink: 0;
+    flex-grow: 1;
+    color: #345a36;
+    font-size: 1em;
+    text-align: left;
+    padding: .25em;
+}
+.tetr-stat-rank-local {
+    display: inline-block;
+    padding: .2rem 0;
+    padding-bottom: 0;
+    font-size: .9rem;
+    color: #345a36;
+    padding-left: 1rem;
+}
+.tetr-stat-rank-local .tetr-flag {
+    height: .7rem;
+    vertical-align: 0;
+    margin: unset;
+    mix-blend-mode: overlay;
+}
+.tetr-stat-rank-local span {
+    color: #679c6a;
+    font-weight: 900;
+}
+.tetr-stat-rank-global {
+    display: inline-block;
+    padding: .2rem .3rem;
+    padding-bottom: 0;
+    font-size: .9rem;
+    color: #679c6a;
+    background-color: #345a36;
+    clip-path: polygon(0 0,100% 0,100% 100%,0.5rem 100%);
+    padding-left: .7rem;
+    border-radius: 0 3px 0 0;
+}
+.tetr-stat-rank-global.silver {
+    background: linear-gradient(to bottom,#b2bad0 0,#a3abc1 50%,
+        #b8c3de 50%,#d5def4 100%);
+    color: #3f4452;
+}
+.tetr-stat-rank-global span {
+    color: #b3f4b6;
+    font-weight: 900;
+}
+.tetr-stat-rank-global.silver span {
+    color: #0c0d11;
+}
+.tetr-stat-area h5 {
+    color: #b3f4b6;
+    font-size: 2em;
+    text-shadow: 0 2px #90c397,0 0 16px #fff4;
+    margin: .15em;
+    margin-bottom: 0;
+}
+.tetr-stat-area h5 span {
+    font-size: .75em;
+}
+.tetr-stat-area h5 span span {
+    font-size: .5em;
+    margin-left: .2em;
+    color: #90c397;
+}
+.tetr-stat-bottom, .tetr-stat-footer {
+    color: #679c6a;
+    font-size: .85em;
+    margin: .15em;
+    border-top: 1px solid #345a36;
+    padding-top: .5em;
+    margin-bottom: 0;
+    font-weight: 900;
+}
+.tetr-stat-footer {
+    border-top: none;
+    padding-top: .15em;
+}
+.tetr-stat-bottom span {
+    color: #b3f4b6;
+}
+.tetr-stat-footer span.tetr-gray {
+    color: #345a36;
+}
+#tetr-full-profile-thin {
+    display: none;
+    margin: -.5em;
+    font-size: 1.5rem;
+    margin-top: .2em;
+    padding: .3em .5em;
+    padding-top: .6em;
+    text-align: center;
+    background-color: #1f3620;
+    color: #a1dba6;
+    transition: .3s background-color;
+}
+#tetr-full-profile-thin:hover {
+    background-color: #1c301d;
+}
+
+@media (max-width: 650px) {
+    #tetr-full-profile-thin {
+        display: block;
+    }
+    #tetr-full-profile {
+        display: none;
+    }
+}
+
+/* Minecraft game section */
+#game-mc {
+    background: #757575;
+    color: white;
+    text-shadow: 2.2px 2.2px #3f3f3f;
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-family: "Minecraft";
+    font-weight: 400;
+}
+#game-mc img {
+    image-rendering: pixelated;
+}
+.mc-inner {
+    padding: 16px;
+    margin: 8px;
+    margin-top: 0px;
+    display: flex;
+}
+.mc-header {
+    margin: 8px;
+    padding: 4px 8px;
+    width: fit-content;
+    margin-bottom: 0px;
+    border: 4px solid black;
+    border-bottom: 0px;
+    box-shadow: inset 4px 4px #afafaf, inset -4px -4px #5d5d5d;
+}
+.mc-border {
+    box-shadow: inset 4px 4px black, inset -4px -4px black,
+        inset 8px 8px #afafaf, inset -8px -8px #5d5d5d;
+}
+.mc-section {
+    flex-grow: 1;
+}
+
+#mc-main img {
+    height: 64px;
+    aspect-ratio: 1/1;
+}
+#mc-main-stats {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+}
+#mc-main h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.mc-yellow {
+    text-shadow: 2.2px 2.2px #3F3F15;
+    color: #FFFF55;
+}
+.mc-gray {
+    color: #C5C5C5;
+    text-shadow: 2.2px 2.2px #313131;
+}
+
+#mc-mcci .mc-inner {
+    box-shadow: 4px 4px inset #17153b, -4px -4px #17153b inset, 
+        8px 8px inset #9366f1, -8px -8px inset #9366f1;
+    background-color: #7355cd;
+    position: relative;
+}
+#mc-mcci .mc-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 50%;
+    width: 100%;
+    background-color: #0000001e;
+    z-index: 0;
+    top: 50%;
+}
+
+#mc-mcci-top {
+    z-index: 1;
+}
+
+#mc-mcci-crown img {
+    height: 32px;
+    margin-right: 8px;
+    aspect-ratio: 1/1;
+}
+#mc-mcci-crown {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+#mc-mcci-crown h2 {
+    margin: 0;
+    font-weight: 400;
+}
+.mc-mcci-level > span > img {
+    height: 20px;
+    aspect-ratio: 1/1;
+    margin-right: 2px;
+}
+
+#mc-mcci-levels {
+    display: flex;
+    flex-direction: column;
+}
+.mc-mcci-level {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+.mc-mcci-level > img {
+    width: 20px;
+    margin-right: 4px;
+}
+.mc-mcci-level > span {
+    display: flex;
+    align-items: center;
+}
+
+#mc-hsb .mc-inner {
+    background-color: #1c1d24;
+    display: flex;
+    flex-direction: column;
+}
+#hsb-level {
+    margin-bottom: 8px;
+}
+#hsb-level h2 {
+    margin: 0;
+    font-weight: 400;
+}
+#hsb-level-val {
+    color: #459bff;
+    text-shadow: 2.2px 2.2px #0a1325;
+}
+.hsb-gray {
+    color: #707592;
+    text-shadow: 2.2px 2.2px #1c1d24;
+}
+#hsb-skills {
+    display: flex;
+    flex-direction: column;
+}
+.hsb-skill, #hsb-coins {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+}
+#mc-hsb img {
+    height: 20px;
+    margin-right: 2px;
+    aspect-ratio: 1/1;
+}
+
+#mc-sr .mc-inner {
+    background-color: #0d2427;
+    box-shadow: 4px 4px inset #17153b, -4px -4px #17153b inset, 
+        8px 8px inset #6ba52a, -8px -8px inset #6ba52a;
+    display: flex;
+    flex-direction: column;
+}
+#sr-rank-icon {
+    --s: 32px;
+    --x: 4;
+    --y: 2;
+
+    width: var(--s);
+    height: var(--s);
+    
+    background-size: calc(var(--s) * 6) calc(var(--s) * 3);
+    background-position: calc(var(--s) * var(--x) * -1) calc(var(--s) * var(--y) * -1);
+    background-repeat: no-repeat;
+    background-image: url("../images/mcsr-ranks.png");
+    image-rendering: pixelated;
+    display: inline-block;
+}
+#sr-rank h2 {
+    margin: 0;
+    margin-left: 4px;
+    font-weight: 400;
+}
+#sr-rank {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--bg-darker);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tooltip-container, .border-rotate {
+        animation: none;
+    }
+
+    .tooltip-container, .tooltip-container:popover-open {
+        transform: translateY(0);
+    }
+
+    .bar-svg, .bar-svg path {
+        animation-play-state: paused;
+    }
+};
