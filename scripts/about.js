@@ -120,7 +120,7 @@ for (const badPref of badPrefs) {
 
 const tetrTime = {
     "40l": new Date("2026-09-16T12:48:54.797Z"),
-    "qp": new Date("2026-10-30T23:49:01.932Z"),
+    "qp": new Date("2026-11-20T14:58:57.868Z"),
     "qpe": new Date("2026-07-01T23:09:29.700Z"),
 }
 for (const [key, date] of Object.entries(tetrTime)) {
