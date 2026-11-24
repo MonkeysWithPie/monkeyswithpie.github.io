@@ -17,21 +17,8 @@ function addPopoverListeners(tooltip, source) {
     })
     source.addEventListener("mouseover", open)
     source.addEventListener("mouseout", close)
-
-    if (navigator.userAgent.includes("Safari")) {
-        // on safari, clicking outside the popup won't close it. THANK YOU APPLE
-        // instead, we let clicking the popover a second time close it
-        source.addEventListener("click", () => {
-            if (tooltip.matches(':popover-open')) { 
-                close();
-            } else {
-                open()
-            }
-        })
-    } else {
-        source.addEventListener("focus", open)
-        source.addEventListener("blur", close)
-    }
+    source.addEventListener("focus", open)
+    source.addEventListener("blur", close)
 }
 
 for (const badge of badges) {
