@@ -7,7 +7,7 @@
 		<link rel="preload" href="styles/about.css" as="style">
 
         <link rel="stylesheet" href="styles/about.css" blocking="render">
-		<link rel="stylesheet" href="https://ch.tetr.io/res/css/extra.css">
+		<link rel="preload" href="https://ch.tetr.io/res/css/extra.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
 		</noscript>
         <div id="profile-box" role="banner">
 			<div id="pfp-container">
-				<img src="images/pfp-s.webp" id="profile-picture">
+				<img src="images/pfp-s.webp" id="profile-picture" alt="morky's profile picture">
 			</div>
             <div id="name-popout">
                 <div id="name" class="slice-clipped">MONKEYSWITHPIE</div>
@@ -123,11 +123,11 @@
 					</h2>
 					<div id="game-tetr" class="game-full">
 						<div id="tetr-top-bar">
-							<div id="tetr-username">MONKEYSWITHPIE <img id="tetr-main-flag" class="tetr-flag" src="https://tetr.io/res/flags/us.svg"></div>
+							<div id="tetr-username">MONKEYSWITHPIE <img id="tetr-main-flag" class="tetr-flag" src="https://tetr.io/res/flags/us.svg" alt="U.S. flag"></div>
 							<div id="tetr-full-profile"><a target="_blank" href="https://ch.tetr.io/u/monkeyswithpie">&#497 VIEW FULL PROFILE</a></div>
 						</div>
 						<div id="tetr-short-stats">
-							<div class="leveltag ns lt_shape_0 lt_badge_color_5 lt_shape_color_0">2504</div>
+							<div class="leveltag lt_shape_0 lt_badge_color_5 lt_shape_color_0">2504</div>
 							<div id="tetr-gametime">
 								704<span>H</span>
 							</div>
@@ -138,7 +138,7 @@
 								<div class="tetr-stat-head">
 									<h6>40 LINES</h6> 
 									<div class="tetr-stat-ranks">
-										<div class="tetr-stat-rank-local"><img class="tetr-flag" src="https://tetr.io/res/flags/us.svg"> #<span>676</span></div>
+										<div class="tetr-stat-rank-local"><img class="tetr-flag" src="https://tetr.io/res/flags/us.svg" alt="U.S. flag"> #<span>676</span></div>
 										<div class="tetr-stat-rank-global">#<span>3,401</span></div>
 									</div>
 								</div>
@@ -197,14 +197,14 @@
 				</div>
 
 				<div class="game-full">
-					<h2 style="--c: #2b4325; --fc: var(--text-im);"><img src="https://minecraft.wiki/images/Grass_Block_JE7_BE6.png"> Minecraft</h2>
+					<h2 style="--c: #2b4325; --fc: var(--text-im);"><img src="https://minecraft.wiki/images/Grass_Block_JE7_BE6.png" alt=""> Minecraft</h2>
 					<div id="game-mc" class="game-full mc-border">
 						<div class="mc-section" id="mc-main">
 							<div class="mc-header">
 								General
 							</div>
 							<div class="mc-border mc-inner">
-								<img src="https://mc-heads.net/avatar/1bd17ee7-c2d2-411e-8959-747c76974021.png">
+								<img src="https://mc-heads.net/avatar/1bd17ee7-c2d2-411e-8959-747c76974021.png" alt="">
 								<div id="mc-main-stats">
 									<h2 class="mc-yellow">MonkeysWithPie</h2>
 									<p>5,000+ Hours</p>
@@ -220,31 +220,31 @@
 								<!-- TODO what if this looked good. just a thought -->
 								<div id="mc-mcci-top">
 									<div id="mc-mcci-crown">
-										<img src="https://islandcdn.themysterys.com/icons/crowns/3.png">
+										<img src="https://islandcdn.themysterys.com/icons/crowns/3.png" alt="">
 										<h2 class="mc-yellow">Crown Level 38</h2>
 									</div>
 									<div id="mc-mcci-levels">
 										<p class="mc-mcci-level">
-											<img src="https://islandcdn.themysterys.com/icons/trophies/yellow.png">
+											<img src="https://islandcdn.themysterys.com/icons/trophies/yellow.png" alt="">
 											28,888 trophies
 										</p>
 										<p class="mc-mcci-level">
-											<img src="https://islandcdn.themysterys.com/icons/style_level/2.png">
-											Lv24&nbsp;
+											<img src="https://islandcdn.themysterys.com/icons/style_level/2.png" alt="">
+											Style Level 24&nbsp;
 											<span class="mc-gray">
-												(<img src="https://islandcdn.themysterys.com/icons/trophies/silver.png"> 12,091)
+												(<img src="https://islandcdn.themysterys.com/icons/trophies/silver.png" alt="Trophies"> 12,091)
 											</span>										
 										</p>
 										<p class="mc-mcci-level">
-											<img src="https://islandcdn.themysterys.com/fishing/level/3.png">
-											Lv37&nbsp;
+											<img src="https://islandcdn.themysterys.com/fishing/level/3.png" alt="">
+											Fishing Level 37&nbsp;
 											<span class="mc-gray">
-												(<img src="https://islandcdn.themysterys.com/icons/trophies/silver.png"> 8,647)
+												(<img src="https://islandcdn.themysterys.com/icons/trophies/silver.png" alt="Trophies"> 8,647)
 											</span>
 										</p>
 										<p class="mc-mcci-level">
-											<img src="https://islandcdn.themysterys.com/factions/orange/2.png">
-											Lv83
+											<img class="mc-mcci-shortimg" src="https://islandcdn.themysterys.com/factions/orange/2.png" alt="">
+											Orange Ocelots Level 83
 										</p>
 									</div>
 								</div>
@@ -261,17 +261,17 @@
 									</h2>
 								</div>
 								<p id="hsb-coins">
-									<img src="https://hypixelskyblock.minecraft.wiki/images/Coins_%28Gold%29.png"> ~4B networth
+									<img src="https://hypixelskyblock.minecraft.wiki/images/Coins_%28Gold%29.png" alt=""> ~4B networth
 								</p>
 								<div id="hsb-skills" class="mc-gray">
 									<p class="hsb-skill mc-skill-max">
-										<img src="https://minecraft.wiki/images/Golden_Pickaxe_JE3_BE2.png"> Mining Level 60
+										<img src="https://minecraft.wiki/images/Golden_Pickaxe_JE3_BE2.png" alt=""> Mining Level 60
 									</p>
 									<p class="hsb-skill">
-										<img src="https://minecraft.wiki/images/Iron_Hoe_JE2_BE2.png"> Farming Level 42
+										<img src="https://minecraft.wiki/images/Iron_Hoe_JE2_BE2.png" alt=""> Farming Level 42
 									</p>
 									<p class="hsb-skill">
-										<img src="https://minecraft.wiki/images/Iron_Axe_JE5_BE2.png"> Foraging Level 43
+										<img src="https://minecraft.wiki/images/Iron_Axe_JE5_BE2.png" alt=""> Foraging Level 43
 									</p>
 								</div>
 							</div>

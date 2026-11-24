@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: local('JetBrains Mono'), url('../assets/JetBrainsMono-Regular.woff2') format("woff2");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'HUN';
+    src: url('../assets/hun2.ttf');
+    font-display: swap;
+}
+@font-face {
+    font-family: "Minecraft";
+    src: url("../assets/Minecraft-Seven_v2.woff2") format("woff2");
+    font-display: swap;
+}
+
 body {
     --bg: #20201e;
     --bg-darker: #0f0f0f;
@@ -362,19 +378,6 @@ iconify-icon {
     margin-right: 2px;
 }
 
-@font-face {
-    font-family: 'JetBrains Mono';
-    src: local('JetBrains Mono'), url('../assets/JetBrainsMono-Regular.woff2') format("woff2");
-}
-@font-face {
-    font-family: 'HUN';
-    src: url('../assets/hun2.ttf');
-}
-@font-face {
-    font-family: "Minecraft";
-    src: url("../assets/Minecraft-Seven_v2.woff2") format("woff2");
-}
-
 .game-full > h2, .game-partial > h2 {
     clip-path: polygon(0.8em 0%, 100% 0%, calc(100% - 0.8em) 100%, 
         100% 100%, 0% 100%, 0.8em 0%);
@@ -443,7 +446,8 @@ iconify-icon {
     text-decoration: none;
 }
 #tetr-main-flag {
-    height: .5em;
+    height: 16px;
+    width: 21.3px;
     vertical-align: middle;
     margin-left: .15em;
 }
@@ -452,11 +456,31 @@ iconify-icon {
         100% calc(100% - 0.1em),calc(100% - 0.1em) 100%,
         0.1em 100%,0 calc(100% - 0.1em),0 0.1em);
 }
+/* intended for very laggy internet as a placeholder whilst extra.css loads */
 .leveltag {
     margin-top: 6px !important;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    font-size: 1.1em;
+    padding: 0.2em 0.3em 0 0.3em;
+    line-height: 1em;
+    font-weight: 900;
+    margin-left: 0.25em;
+    color: black;
 }
+.leveltag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #C9C9C9 0%, #E4E4E4 50%, #C9C9C9 100%);
+    z-index: -1;
+    clip-path: polygon(0.2em 0, calc(100% - 0.2em) 0, 100% 0.2em, 100% calc(100% - 0.2em), calc(100% - 0.2em) 100%, 0.2em 100%, 0 calc(100% - 0.2em), 0 0.2em);
+}
+
 #tetr-supporter {
     height: 1.9em;
+    width: 11.1em;
     float: right;
 }
 #tetr-gametime {
@@ -523,6 +547,7 @@ iconify-icon {
 }
 .tetr-stat-rank-local .tetr-flag {
     height: .7rem;
+    width: 14.9px;
     vertical-align: 0;
     margin: unset;
     mix-blend-mode: overlay;
@@ -726,7 +751,11 @@ iconify-icon {
 }
 .mc-mcci-level > img {
     width: 20px;
+    aspect-ratio: 1/1;
     margin-right: 4px;
+}
+.mc-mcci-shortimg {
+    aspect-ratio: 3/2 !important;
 }
 .mc-mcci-level > span {
     display: flex;
